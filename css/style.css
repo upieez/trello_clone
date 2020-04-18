@@ -18,32 +18,5 @@
     grid-auto-columns: 275px;
     grid-auto-flow: column;
     grid-gap: 10px;
-    height: 35em;
-}
-  
-.board-column {
-    border-radius: 10px;
-    display: grid;
-    grid-auto-rows: max-content;
-    grid-gap: 10px;
-    height: max-content;
-    padding: 10px;
-    background-color: cornflowerblue;
-}
-  
-.column-header {
-    font-size: 24px;
-    font-weight: bolder;
-}
-
-.cards {
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    cursor:pointer;
-}
-
-.column-add-cards{
-    padding: 5px;
+    height: 38em;
 }
