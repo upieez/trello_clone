@@ -23,11 +23,10 @@
   
 .board-column {
     border-radius: 10px;
-    position: relative;
     display: grid;
     grid-auto-rows: max-content;
     grid-gap: 10px;
-    height: 100%;
+    height: max-content;
     padding: 10px;
     background-color: cornflowerblue;
 }
@@ -46,8 +45,5 @@
 }
 
 .column-add-cards{
-    position: absolute;
-    bottom: 0;
-    padding: 15px;
-    
+    padding: 5px;
 }
