@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     var board = document.querySelector(".board-rows");
+    var addColumn = document.querySelector("#add-column");
 
     const loadCloumns = () => {
         var responseHandler = function() {
@@ -50,6 +51,27 @@ window.addEventListener("DOMContentLoaded", () => {
         request.send();
     }
 
+    addColumn.addEventListener("click", function(event){
+        var columnTitle = document.querySelector('#inputColumnTitle').value
+
+        if (!columnTitle){
+            return;
+        } else {
+            var responseHandler = function() {
+                location.reload();
+            };
+        
+            var request = new XMLHttpRequest();
+            var url = `http://localhost:3000/columns`;
+            var data = {"title": columnTitle}
+        
+            request.addEventListener("load", responseHandler);
+            request.open("POST", url);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.send(JSON.stringify(data));
+        }
+        
+    })
 
     loadCloumns();
     loadCards();
