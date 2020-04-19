@@ -53,13 +53,11 @@ class DisplayColumn extends HTMLElement {
             }
         </style>
         <div class="board-column">
-            <div class="column-header">
-                <slot name="column-header">${this.title}</slot>
-            </div>
+            <div class="column-header" contenteditable>${this.title}</div>
             <div id="column-cards">
                 <slot name="card"></slot>
             </div>
-            <div class="column-add-cards" id="add-card">+ Add Card</div>
+            <div class="column-add-cards">+ Add Card</div>
         </div>
         `;
         this.shadow.innerHTML = template;
