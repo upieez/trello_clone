@@ -56,7 +56,7 @@ class DisplayColumn extends HTMLElement {
             <div class="column-header">
                 <slot name="column-header">${this.title}</slot>
             </div>
-            <div class="column-cards">
+            <div id="column-cards">
                 <slot name="card"></slot>
             </div>
             <div class="column-add-cards" id="add-card">+ Add Card</div>
