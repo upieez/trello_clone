@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     var board = document.querySelector(".board-rows");
+    var inputBoard = document.querySelector(".board-column");
     var addColumn = document.querySelector("#add-column");
 
     const loadCloumns = () => {
@@ -12,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 var column = document.createElement('display-column')
                 column.setAttribute('id', "column-" + (x + 1));
                 column.setAttribute('title', result[x]["title"]);
-                board.prepend(column);
+                inputBoard.parentNode.insertBefore(column,inputBoard);
                 x++;
             }
         };
@@ -70,10 +71,8 @@ window.addEventListener("DOMContentLoaded", () => {
             request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             request.send(JSON.stringify(data));
         }
-        
     })
 
     loadCloumns();
     loadCards();
-
 })
