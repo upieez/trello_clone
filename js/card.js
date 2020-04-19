@@ -52,11 +52,7 @@ class DisplayCard extends HTMLElement {
             cursor:pointer;
         }
         </style>
-        <div class="cards">
-            <slot name="card-title">
-                ${this.title}
-            </slot>
-        </div>
+        <div class="cards" contenteditable>${this.title}</div>
         `;
         this.shadow.innerHTML = template;
     }
