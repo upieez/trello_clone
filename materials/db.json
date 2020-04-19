@@ -1,0 +1,12 @@
+{
+    "columns" : [{
+        "id" : "1",
+        "title": "To-do"
+    }],
+    "cards" : [{
+        "id" : "1",
+        "title" : "Move",
+        "description" : "Labore nostrud eiusmod sunt sint.",
+        "columnId" : ""
+    }]
+}
