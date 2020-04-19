@@ -18,7 +18,7 @@ class DisplayBoard extends HTMLElement {
 
     }
 
-    get columnsData(){
+    columnsData(){
         const responseHandler = function() {
             console.log("response text", JSON.parse(this.responseText));
             console.log("status text", this.statusText);
@@ -34,7 +34,7 @@ class DisplayBoard extends HTMLElement {
           request.send();
     }
 
-    get cardsData(){
+    cardsData(){
         const responseHandler = function() {
             console.log("response text", JSON.parse(this.responseText));
             console.log("status text", this.statusText);
@@ -51,17 +51,25 @@ class DisplayBoard extends HTMLElement {
     }
 
     connectedCallback(){
-        let rows = document.querySelector("body > display-board")
-                    .shadowRoot.querySelector("#rows")
+        let rows = this.shadowRoot.querySelector("#rows")
             rows.insertBefore(this.columnsTemplate,rows.firstChild);  
 
-        let cards = document.querySelector("body > display-board")
-                    .shadowRoot.querySelector("#column-1")
-                    .shadowRoot.querySelector("#card")
+        let cards = this.shadowRoot.querySelector("#column-1").shadowRoot.querySelector("#card")
             cards.appendChild(this.cardsTemplate);        
         
         this.columnsData();
         this.cardsData();
+        this.createColumns();
+    }
+
+    createColumns(){
+        const columnsTemplate = document.createElement('display-columns')
+        let button = this.shadowRoot.querySelector("#add-button")
+        let form = this.shadowRoot.querySelector("#form")
+        
+        button.addEventListener("click", () => {
+            form.parentNode.insertBefore(columnsTemplate,form);
+        })
     }
 
 }
@@ -76,6 +84,20 @@ class DisplayColumns extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         this.shadow.appendChild(templateContent.cloneNode(true));
     }
+
+    static get observedAttributes() { 
+        console.log("is this working")
+        return ["column-header-1","column-header", "column-name"]; 
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name == 'column-header-1' || name == 'column-header' || name == "column-name"){
+            console.log(name);
+            console.log("this is the old value ", oldValue);
+            console.log("this is the new value ", newValue)
+            console.log('attributes changed.');
+        }
+      }
 }
 
 class DisplayCards extends HTMLElement {
