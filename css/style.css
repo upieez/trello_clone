@@ -3,20 +3,3 @@
     font-size: 16px;
     background-color: aquamarine;
 }
-
-.board-layout {
-    display: grid;
-    grid-template-rows: max-content auto;
-    grid-gap: 20px;
-    padding: 20px;
-    height: 100%;
-    overflow: scroll;
-}
-
-.board-rows {
-    display: grid;
-    grid-auto-columns: 275px;
-    grid-auto-flow: column;
-    grid-gap: 10px;
-    height: 38em;
-}
