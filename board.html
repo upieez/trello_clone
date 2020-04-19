@@ -7,8 +7,58 @@
     <title>Trello Clone</title>
 </head>
 <body>
+     <template id="display-board">
+        <style>
+        .board-layout {
+            display: grid;
+            grid-template-rows: max-content auto;
+            grid-gap: 20px;
+            padding: 20px;
+            height: 100%;
+            overflow: scroll;
+        }
+        .board-rows {
+            display: grid;
+            grid-auto-columns: 275px;
+            grid-auto-flow: column;
+            grid-gap: 10px;
+            height: 38em;
+        }
+        .board-column {
+            border-radius: 10px;
+            display: grid;
+            grid-auto-rows: max-content;
+            grid-gap: 10px;
+            height: max-content;
+            padding: 10px;
+            background-color: cornflowerblue;
+        }
+        button{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            width: 35%;
+        }
+        </style>
+            <div class="board-layout">
+                <h1>Welcome!</h1>
+                <div class="board-rows" id="rows">
+                    <div id="form">
+                        <div class="board-column input-box">
+                            <input type="text">
+                            <button>Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     </template>
      <template id="display-columns">
-         <style>
+        <style>
             .board-column {
                 border-radius: 10px;
                 display: grid;
@@ -24,6 +74,22 @@
                 font-size: 24px;
             }
 
+            .column-add-cards{
+                padding: 5px;
+                cursor: pointer;
+            }
+        </style>
+        <div class="board-column">
+            <div class="column-header">
+                <slot name="column-name">To-do</slot>
+            </div>
+            <div class="column-cards" id="card">
+            </div>
+            <div class="column-add-cards">+ Add Card</div>
+        </div>
+     </template>
+     <template id="display-cards">
+         <style>
             .cards {
                 background-color: white;
                 margin-top: 10px;
@@ -31,30 +97,18 @@
                 padding: 10px;
                 cursor:pointer;
             }
-
-            .column-add-cards{
-                padding: 5px;
-            }
          </style>
-        <div class="board-column">
-            <div class="column-header">To-do</div>
-            <div class="column-cards">
-                <div class="cards"><slot name="card-name">Cupidatat ea ipsum esse ad cillum sit nulla incididunt.</slot></div>
-            </div>
-            <div class="column-add-cards">+ Add Another Card</div>
+        <div class="cards" id="card">
+            <slot name="card-name">
+                Cupidatat ea ipsum esse ad cillum sit nulla incididunt.
+            </slot>
         </div>
      </template>
      
-    <div class="board-layout">
-        <h1>Welcome!</h1>
-        <div class="board-rows">
-            <display-columns>
-                <span slot="card-name">Hey</span>
-            </display-columns>
-        </div>
-    </div>
+     <display-board>
+     </display-board>
     
-    <!-- <script src="js/template.js"></script> -->
-    <script src="js/components.js"></script>
+     <script src="js/db.js"></script>
+     <script src="js/components.js"></script>
 </body>
 </html>
