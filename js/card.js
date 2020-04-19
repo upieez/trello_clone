@@ -5,7 +5,6 @@ class DisplayCard extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         this._title = "Default Title";
         this._description = "";
-
     }
 
     get title() {
@@ -55,7 +54,7 @@ class DisplayCard extends HTMLElement {
         </style>
         <div class="cards">
             <slot name="card-title">
-                Cupidatat ea ipsum esse ad cillum sit nulla incididunt.
+                ${this.title}
             </slot>
         </div>
         `;
