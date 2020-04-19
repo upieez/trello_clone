@@ -33,7 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
             var x = 0;
             while (x < result.length) {
                 var card = document.createElement('display-card')
-                card.setAttribute('slot', result[x]["title"]);
                 card.setAttribute('title', result[x]["title"]);
 
                 var column = document.querySelector("#column-"+result[x]["columnId"]);
