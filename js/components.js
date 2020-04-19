@@ -9,7 +9,7 @@ class DisplayBoard extends HTMLElement {
 
         this.columnsTemplate = document.createElement('display-columns');
         this.columnsTemplate.setAttribute("id", "column-" + number );
-        this.columnsTemplate.setAttribute("content", "Titleeeeeeee");
+        this.columnsTemplate.setAttribute("content", "Column 1");
 
         this.cardsTemplate = document.createElement('display-cards');
         this.cardsTemplate.setAttribute("id", "card-" + number );
@@ -68,7 +68,9 @@ class DisplayColumns extends HTMLElement {
         this.setAttribute("content", value);
     }
 
-    static get observedAttributes() {return ["content"];}
+    static get observedAttributes() {
+        return ["content"];
+    }
 
     attributeChangedCallback(name, oldValue, newValue) {
         console.log(name, oldValue, newValue);
@@ -97,8 +99,10 @@ class DisplayColumns extends HTMLElement {
     render(){
         let columnHeader = this.shadowRoot.querySelector(".column-header")
         columnHeader.innerHTML = `
-                <div class="column-name" slot="column-name" contenteditable>${this.content}</div>
-        `
+                <div class="column-name" slot="column-name" contenteditable>
+                ${this.content}
+                </div>
+                `
     }
 }
 
@@ -115,7 +119,7 @@ class DisplayCards extends HTMLElement {
     
     connectedCallback(){
         let cardName = this.shadowRoot.querySelector(".cards");
-        cardName.innerHTML = `<div slot="card-name"> WOWOWOWOWOWOWO </div>`
+        cardName.innerHTML = `<div slot="card-name"> Tempor ipsum anim est qui laborum. </div>`
     }
 }
 
