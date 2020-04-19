@@ -49,9 +49,10 @@
                 <h1>Welcome!</h1>
                 <div class="board-rows" id="rows">
                     <div id="form">
+                        <slot name="display-column"></slot>
                         <div class="board-column input-box">
                             <input type="text">
-                            <button id="add-button">Add</button>
+                            <button id="add-column">Add</button>
                         </div>
                     </div>
                 </div>
@@ -80,12 +81,13 @@
             }
         </style>
         <div class="board-column">
-            <div class="column-header" contenteditable="true">
+            <div class="column-header">
                 <slot name="column-name">To-do</slot>
             </div>
             <div class="column-cards" id="card">
+                <slot name="display-card"></slot>
             </div>
-            <div class="column-add-cards">+ Add Card</div>
+            <div class="column-add-cards" id="add-card">+ Add Card</div>
         </div>
      </template>
      <template id="display-cards">
@@ -98,11 +100,11 @@
                 cursor:pointer;
             }
          </style>
-        <div class="cards" id="card" contenteditable="true">
-            <slot name="card-name">
-                Cupidatat ea ipsum esse ad cillum sit nulla incididunt.
-            </slot>
-        </div>
+            <div class="cards" contenteditable="true">
+                <slot name="card-name">
+                    Cupidatat ea ipsum esse ad cillum sit nulla incididunt.
+                </slot>
+            </div>
      </template>
      
      <display-board>
@@ -110,5 +112,6 @@
     
      <script src="js/db.js"></script>
      <script src="js/components.js"></script>
+
 </body>
 </html>
