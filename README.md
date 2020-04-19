@@ -5,7 +5,7 @@ Challenge is to **only** use web components aside from vanilla HTML,CSS,JS.
 ## MVP
 
  - [x] Create Columns -- without json-server
- - [ ] Read Columns
+ - [x] Read Columns
  - [x] Update Columns -- without json-server
  - [ ] Delete Columns
  - [x] Create Cards -- without json-server/only first column
@@ -19,6 +19,7 @@ Challenge is to **only** use web components aside from vanilla HTML,CSS,JS.
  1. Hooking up json-server with the front-end
  2. Using event listeners with shadowDOM 
  3. Making the cards and columns unique from one another
+ 4. Drag and drop function
 
  ## Furthers
 
