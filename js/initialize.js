@@ -36,7 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 card.setAttribute('title', result[x]["title"]);
 
                 var column = document.querySelector("#column-"+result[x]["columnId"]);
-                console.log(column);
                 var columnCard = column.shadowRoot.querySelector("#column-cards");
                 columnCard.appendChild(card);
                 x++;
