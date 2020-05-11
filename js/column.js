@@ -5,6 +5,10 @@ class DisplayColumn extends HTMLElement {
         this._title = "Default Title";
     }
 
+    get id(){
+        return this.getAttribute("id");
+    }
+
     get title() {
         return this.getAttribute("title");
     }
@@ -55,7 +59,7 @@ class DisplayColumn extends HTMLElement {
         <div class="board-column">
             <div class="column-header" contenteditable>${this.title}</div>
             <div id="column-cards"></div>
-            <add-card title="${this.title}"></add-card>
+            <add-card title="${this.title}" id="${this.id}"></add-card>
         </div>
         `;
         this.shadow.innerHTML = template;

@@ -3,6 +3,8 @@ customElements.define('add-card',
         constructor(){
             super()
             this.addEventListener('click', function(){
+                var getId = this.id
+                var id = getId.split("-");
             })
         }
 
